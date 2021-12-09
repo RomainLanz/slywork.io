@@ -1,0 +1,25 @@
+@layout('layouts/app')
+
+@section('content')
+  @if(flashMessages.has('auth.errors'))
+    <p>
+      Aucun utilisateur n'a été trouvé avec ces identifiants.
+    </p>
+  @end
+
+  <form action="{{ route('AuthController.login') }}" method="POST">
+    {{ csrfField() }}
+
+    <div>
+      <label>Email</label>
+      <input type="email" name="email">
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
+
+    <button type="submit">Connexion</button>
+  </form>
+@end

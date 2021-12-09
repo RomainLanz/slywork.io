@@ -1,0 +1,24 @@
+@layout('layouts/app')
+
+@section('content')
+  <form action="{{ route('AuthController.register') }}" method="POST">
+    {{ csrfField() }}
+
+    <div>
+      <label>Username</label>
+      <input type="text" name="username">
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="email" name="email">
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
+
+    <button type="submit">Inscription</button>
+  </form>
+@end
