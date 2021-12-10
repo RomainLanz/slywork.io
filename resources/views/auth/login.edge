@@ -7,19 +7,26 @@
     </p>
   @end
 
-  <form action="{{ route('AuthController.login') }}" method="POST" up-submit>
+  <form
+    action="{{ route('AuthController.login') }}"
+    method="POST"
+    up-submit
+    up-target="[page-body]"
+  >
     {{ csrfField() }}
 
-    <div>
-      <label>Email</label>
-      <input type="email" name="email">
-    </div>
+    @form.group({ name: 'email' })
+      @!form.label({ title: 'Email' })
+      @!form.input({ type: 'email' })
+    @end
 
-    <div>
-      <label>Password</label>
-      <input type="password" name="password">
-    </div>
+    @form.group({ name: 'password' })
+      @!form.label({ title: 'Mot de passe' })
+      @!form.input({ type: 'password' })
+    @end
 
-    <button type="submit">Connexion</button>
+    @elements.button({ type: 'submit' })
+      Connexion
+    @end
   </form>
 @end

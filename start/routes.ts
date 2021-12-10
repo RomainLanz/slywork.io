@@ -2,6 +2,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.on('/').render('pages/home')
 
+Route.get('users/:id/verification', 'AuthController.validateUser')
 Route.get('login', 'AuthController.showLoginForm')
 Route.post('login', 'AuthController.login')
 Route.delete('logout', 'AuthController.logout')

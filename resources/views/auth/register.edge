@@ -1,7 +1,12 @@
 @layout('layouts/app')
 
 @section('content')
-  <form action="{{ route('AuthController.register') }}" method="POST" up-submit>
+  <form
+    action="{{ route('AuthController.register') }}"
+    method="POST"
+    up-submit
+    up-target="[page-body]"
+  >
     {{ csrfField() }}
 
     @form.group({ name: 'username' })
