@@ -7,7 +7,7 @@
     </p>
   @end
 
-  <form action="{{ route('AuthController.login') }}" method="POST">
+  <form action="{{ route('AuthController.login') }}" method="POST" up-submit>
     {{ csrfField() }}
 
     <div>

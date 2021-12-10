@@ -1,5 +1,5 @@
 <nav>
-  <a href="/">Home</a>
+  <a href="/" up-target="[main-layout]">Home</a>
   @if(auth.user)
     <form action="{{ route('AuthController.logout') }}?_method=DELETE" method="POST">
       {{ csrfField() }}
@@ -9,7 +9,7 @@
       </button>
     </form>
   @else
-    <a href="{{ route('AuthController.showLoginForm') }}">Connexion</a>
-    <a href="{{ route('AuthController.showRegisterForm') }}">Inscription</a>
+    <a href="{{ route('AuthController.showLoginForm') }}" up-target="[main-layout]">Connexion</a>
+    <a href="{{ route('AuthController.showRegisterForm') }}" up-target="[main-layout]">Inscription</a>
   @end
 </nav>

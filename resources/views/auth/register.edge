@@ -1,24 +1,31 @@
 @layout('layouts/app')
 
 @section('content')
-  <form action="{{ route('AuthController.register') }}" method="POST">
+  <form action="{{ route('AuthController.register') }}" method="POST" up-submit>
     {{ csrfField() }}
 
-    <div>
-      <label>Username</label>
-      <input type="text" name="username">
-    </div>
+    @form.group({ name: 'username' })
+      @!form.label({ title: 'Pseudo' })
+      @!form.input({ type: 'text' })
+    @end
 
-    <div>
-      <label>Email</label>
-      <input type="email" name="email">
-    </div>
+    @form.group({ name: 'email' })
+      @!form.label({ title: 'Email' })
+      @!form.input({ type: 'email' })
+    @end
 
-    <div>
-      <label>Password</label>
-      <input type="password" name="password">
-    </div>
+    @form.group({ name: 'password' })
+      @!form.label({ title: 'Mot de passe' })
+      @!form.input({ type: 'password' })
+    @end
 
-    <button type="submit">Inscription</button>
+    @form.group({ name: 'password_confirmation' })
+      @!form.label({ title: 'Confirmation' })
+      @!form.input({ type: 'password' })
+    @end
+
+    @elements.button({ type: 'submit' })
+      Inscription
+    @end
   </form>
 @end
