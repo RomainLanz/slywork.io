@@ -21,7 +21,7 @@ export default class RegisterValidator {
     'email.unique': `Cet email est déjà utilisé`,
     'password.required': `Le mot de passe est requis`,
     // TODO: Check why it does not work
-    'password.confirmed': `Les mots de passe ne correspondent pas`,
+    'password_confirmation.confirmed': `Les mots de passe ne correspondent pas`,
     'password.minLength': `Le mot de passe doit contenir au moins 6 caractères`,
   }
 }
