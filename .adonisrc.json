@@ -5,7 +5,8 @@
     "@adonisjs/core/build/commands/index.js",
     "@adonisjs/repl/build/commands",
     "@adonisjs/lucid/build/commands",
-    "@adonisjs/mail/build/commands"
+    "@adonisjs/mail/build/commands",
+    "pretty-list-routes/build/commands/PrettyRoute.js"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
