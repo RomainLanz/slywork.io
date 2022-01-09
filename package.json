@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@adonisjs/auth": "^8.0.10",
+    "@adonisjs/bouncer": "^2.2.5",
     "@adonisjs/core": "^5.4.2",
     "@adonisjs/lucid": "^16.3.2",
     "@adonisjs/lucid-slugify": "^2.1.3",
