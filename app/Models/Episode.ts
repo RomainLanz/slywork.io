@@ -42,6 +42,9 @@ export default class Episode extends BaseModel {
   @column()
   public order: number[]
 
+  @column()
+  public seriesId: number
+
   @belongsTo(() => Series)
   public series: BelongsTo<typeof Series>
 }
