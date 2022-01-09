@@ -11,7 +11,7 @@ export default class Series extends BaseSchema {
       table.timestamp('released_at', { useTz: true }).nullable()
       table.string('name').notNullable()
       table.string('description').notNullable()
-      table.string('slug').notNullable()
+      table.string('slug').notNullable().unique()
       table.string('logo_url').nullable()
       table.integer('difficulty_level').notNullable()
     })

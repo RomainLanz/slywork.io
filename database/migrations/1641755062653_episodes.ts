@@ -11,7 +11,7 @@ export default class Episodes extends BaseSchema {
       table.timestamp('released_at', { useTz: true })
       table.string('name').notNullable()
       table.text('description').notNullable()
-      table.string('slug').notNullable()
+      table.string('slug').notNullable().unique()
       table.integer('duration').nullable()
       table.string('video_url').nullable()
       table.integer('difficulty_level').notNullable()

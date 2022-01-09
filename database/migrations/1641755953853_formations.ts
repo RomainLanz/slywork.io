@@ -11,7 +11,7 @@ export default class Formations extends BaseSchema {
       table.timestamp('released_at', { useTz: true }).nullable()
       table.string('name').notNullable()
       table.text('description').notNullable()
-      table.string('slug').notNullable()
+      table.string('slug').notNullable().unique()
       table.string('introduction_url').nullable()
       table.string('logo_url').nullable()
     })
