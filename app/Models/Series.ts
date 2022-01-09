@@ -3,7 +3,7 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 import { DifficultyLevel } from 'App/Enums/DifficultyLevel'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
 
-export default class Serie extends BaseModel {
+export default class Series extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
