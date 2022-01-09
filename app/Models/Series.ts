@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
-import { DifficultyLevel } from 'App/Enums/DifficultyLevel'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
+import Episode from 'App/Models/Episode'
+import { DifficultyLevel } from 'App/Enums/DifficultyLevel'
 
 export default class Series extends BaseModel {
   @column({ isPrimary: true })
@@ -31,4 +32,7 @@ export default class Series extends BaseModel {
 
   @column()
   public difficultyLevel: DifficultyLevel
+
+  @hasMany(() => Episode)
+  public episodes: HasMany<typeof Episode>
 }

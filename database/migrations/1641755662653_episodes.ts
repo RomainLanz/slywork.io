@@ -12,9 +12,10 @@ export default class Episodes extends BaseSchema {
       table.string('name').notNullable()
       table.text('description').notNullable()
       table.string('slug').notNullable().unique()
-      table.integer('duration').nullable()
+      table.integer('duration').unsigned().nullable()
       table.string('video_url').nullable()
-      table.integer('difficulty_level').notNullable()
+      table.integer('difficulty_level').unsigned().notNullable()
+      table.integer('series_id').unsigned().nullable().references('id').inTable('series')
     })
   }
 

@@ -14,6 +14,7 @@ export default class Formations extends BaseSchema {
       table.string('slug').notNullable().unique()
       table.string('introduction_url').nullable()
       table.string('logo_url').nullable()
+      table.json('order').notNullable().defaultTo('[]')
     })
   }
 

@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
+import Series from 'App/Models/Series'
 
 export default class Formation extends BaseModel {
   @column({ isPrimary: true })
@@ -33,4 +34,10 @@ export default class Formation extends BaseModel {
 
   @column()
   public logoUrl: string | null
+
+  @column()
+  public order: number[]
+
+  @manyToMany(() => Series)
+  public series: ManyToMany<typeof Series>
 }

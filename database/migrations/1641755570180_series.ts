@@ -13,7 +13,8 @@ export default class Series extends BaseSchema {
       table.string('description').notNullable()
       table.string('slug').notNullable().unique()
       table.string('logo_url').nullable()
-      table.integer('difficulty_level').notNullable()
+      table.integer('difficulty_level').unsigned().notNullable()
+      table.json('order').notNullable().defaultTo('[]')
     })
   }
 
