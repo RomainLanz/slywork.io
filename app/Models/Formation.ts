@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
 
 export default class Formation extends BaseModel {
   @column({ isPrimary: true })
@@ -21,6 +22,10 @@ export default class Formation extends BaseModel {
   public description: string
 
   @column()
+  @slugify({
+    strategy: 'shortId',
+    fields: ['name'],
+  })
   public slug: string
 
   @column()

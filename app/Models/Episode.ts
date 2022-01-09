@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
 import { DifficultyLevel } from 'App/Enums/DifficultyLevel'
 
 export default class Episode extends BaseModel {
@@ -22,6 +23,10 @@ export default class Episode extends BaseModel {
   public description: string
 
   @column()
+  @slugify({
+    strategy: 'shortId',
+    fields: ['name'],
+  })
   public slug: string
 
   @column()
