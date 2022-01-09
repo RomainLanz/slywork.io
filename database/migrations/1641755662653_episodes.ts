@@ -5,7 +5,7 @@ export default class Episodes extends BaseSchema {
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.uuid('id').primary().defaultTo(this.db.rawQuery('uuid_generate_v4()').knexQuery)
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
       table.timestamp('released_at', { useTz: true })
@@ -15,7 +15,7 @@ export default class Episodes extends BaseSchema {
       table.integer('duration').unsigned().nullable()
       table.string('video_url').nullable()
       table.integer('difficulty_level').unsigned().notNullable()
-      table.integer('series_id').unsigned().nullable().references('id').inTable('series')
+      table.uuid('series_id').nullable().references('id').inTable('series')
     })
   }
 

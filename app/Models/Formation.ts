@@ -5,7 +5,7 @@ import Series from 'App/Models/Series'
 
 export default class Formation extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public id: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

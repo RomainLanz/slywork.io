@@ -6,7 +6,7 @@ import { DifficultyLevel } from 'App/Enums/DifficultyLevel'
 
 export default class Episode extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public id: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
