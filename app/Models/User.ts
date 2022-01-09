@@ -2,10 +2,17 @@ import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 import { UserStatus } from 'App/Enums/UserStatus'
+import { UserRole } from 'App/Enums/UserRole'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
   public id: string
+
+  @column.dateTime({ autoCreate: true })
+  public createdAt: DateTime
+
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  public updatedAt: DateTime
 
   @column()
   public username: string
@@ -22,11 +29,8 @@ export default class User extends BaseModel {
   @column()
   public status: UserStatus
 
-  @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
-
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  @column()
+  public role: UserRole
 
   @beforeSave()
   public static async hashPassword(user: User) {
