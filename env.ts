@@ -36,4 +36,6 @@ export default Env.rules({
   SMTP_PASSWORD: Env.schema.string(),
   // MAILGUN_API_KEY: Env.schema.string(),
   // MAILGUN_DOMAIN: Env.schema.string(),
+  GITHUB_CLIENT_ID: Env.schema.string(),
+  GITHUB_CLIENT_SECRET: Env.schema.string(),
 })

@@ -28,5 +28,7 @@
     @elements.button({ type: 'submit' })
       Connexion
     @end
+
+    <a href="{{ route('SocialAuthController.redirect', { provider: 'github' }) }}">Connexion via GitHub</a>
   </form>
 @end

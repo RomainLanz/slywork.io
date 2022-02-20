@@ -31,7 +31,8 @@
     "@adonisjs/auth",
     "@adonisjs/mail",
     "@adonisjs/lucid-slugify",
-    "@adonisjs/bouncer"
+    "@adonisjs/bouncer",
+    "@adonisjs/ally"
   ],
   "metaFiles": [
     {

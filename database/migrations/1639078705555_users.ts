@@ -14,9 +14,11 @@ export default class UsersSchema extends BaseSchema {
       table.timestamp('updated_at', { useTz: true }).notNullable()
       table.string('username', 80).notNullable().unique()
       table.string('email', 255).notNullable().unique()
-      table.string('password', 180).notNullable()
+      table.string('password', 180).nullable()
       table.integer('status').unsigned().notNullable().defaultTo(UserStatus.Pending)
       table.integer('role').unsigned().notNullable().defaultTo(UserRole.Member)
+      table.string('oauth_provider_id').nullable()
+      table.string('oauth_provider_name').nullable()
       table.string('remember_me_token').nullable()
     })
   }
