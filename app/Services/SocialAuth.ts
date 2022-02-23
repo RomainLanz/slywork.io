@@ -23,7 +23,7 @@ export default class SocialAuth {
   public async exec(): Promise<void> {
     let user = await this.findUser()
 
-    if (!user && (await this.verifyEmailUniqueness())) {
+    if (!user && (await this.verifyEmailOrUsernameUniqueness())) {
       await this.emailExistHandler()
       return
     }
@@ -42,14 +42,19 @@ export default class SocialAuth {
       .first()
   }
 
-  private async verifyEmailUniqueness() {
-    return (await User.query().where('email', this.socialUser.email!).first()) !== null
+  private async verifyEmailOrUsernameUniqueness() {
+    return (
+      (await User.query()
+        .where('email', this.socialUser.email!)
+        .orWhere('username', this.socialUser.nickName)
+        .first()) !== null
+    )
   }
 
   private createUser() {
     return User.create({
       username: this.socialUser.nickName,
-      email: this.socialUser.email,
+      email: this.socialUser.email!,
       oauthProviderId: this.socialUser.id,
       oauthProviderName: this.provider,
     })
