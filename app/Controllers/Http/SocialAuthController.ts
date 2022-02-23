@@ -15,7 +15,7 @@ export default class SocialAuthController {
         response.redirect().toPath('/')
       })
       .onEmailExist(() => {
-        session.flash({ error: `L'email est déjà utilisé` })
+        session.flash({ error: `L'email ou le nom d'utilisateur est déjà utilisé` })
         response.redirect().toRoute('AuthController.showLoginForm')
       })
   }
